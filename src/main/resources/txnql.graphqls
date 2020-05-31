@@ -1,0 +1,21 @@
+type Query {
+txns(count: Int):[Txn]
+txn(id: ID):Txn
+txnByCustomerId(first: Int, after: Int, customerId: Long!):[Txn]
+txnByDescription(first: Int, after: Int, description: String!):[Txn]
+txnByAccountNumbers(first: Int, after: Int, accountNumber: [String!]):[Txn]
+}
+
+type Mutation {
+createTxn(accountNumber: String!, txnAmount: String!, description: String!, txnDate: String!, txnTime: String!, customerId: Long!): Txn
+}
+
+type Txn {
+id: ID!,
+accountNumber: String,
+txnAmount: String,
+description: String,
+txnDate: String,
+txnTime: String,
+customerId: Long
+}
